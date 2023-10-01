@@ -98,15 +98,25 @@ void movimentacao(){
     return 0;
 }
 void retirada(){
+    header();
 
+    int codProduto, motivoRetirada, unidRetirada;
 
-    printf ("Retirada de Produtos!\n");
+    printf ("Retirada de Produtos!\n\n");
     printf ("Códigos            Motivo\n");
     printf ("   1               Consumo\n");
     printf ("   2               Vencimento\n");
     printf ("   3               Avaria\n");
-    printf ("   4               Perda/Roubo\n");
-    
+    printf ("   4               Perda/Roubo\n\n");
+
+    printf ("Qual o código do produto que deseja retirar? ");
+    scanf (" %d", &codProduto);
+
+    printf ("Quantas unidades deseja retirar? ");
+    scanf (" %d", &unidRetirada);
+
+    printf ("Qual o código do motivo da retirada?");
+    scanf (" %d", &motivoRetirada);
 }
 void historicoRetirada(){
 }
@@ -190,7 +200,7 @@ void tutorial(){
     printf ("5 - Tutorial\n\n");
 
     printf("Caso queira visualizar o tutorial novamente, basta acessar\n");
-    printf("6 - Tutorial\n\n");
+    printf("5 - Tutorial\n\n");
 
     system("pause");
     system("cls");
