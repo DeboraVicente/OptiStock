@@ -8,11 +8,13 @@ void produto(nome_pasta);
 void estoque(nome_pasta);
 void compra(nome_pasta);
 void movimentacao(nome_pasta);
+void retirada();
+void historicoRetirada();
 void tutorial();
 void header();
 
 void main(){
-        setlocale(LC_ALL, "Portuguese");
+        setlocale(LC_ALL, "");
         header();
 
         int codigo;
@@ -25,7 +27,7 @@ void main(){
         printf ("5 - Tutorial\n");
         printf ("0 - Sair\n");
         printf("Codigo: ");
-        scanf("%d", &codigo);
+        scanf(" %d", &codigo);
 
           switch (codigo) {
                 case 0:
@@ -72,9 +74,52 @@ void estoque(){
 
 void movimentacao(){
     header();
+
+    int codigo;
+    printf ("Movimentação de Estoque!\n");
+    printf ("Escolha uma das opções abaixo para prosseguir:\n");
+    printf ("1 - Retirada\n");
+    printf ("2 - Verificar Retirada\n");
+    printf ("0 - Voltar ao Menu\n");
+    printf("Codigo: ");
+    scanf(" %d", &codigo);
+
+    switch (codigo) {
+                case 1:
+                    retirada();
+                    break;
+                case 2:
+                    historicoRetirada();
+                    break;
+                case 0:
+                    main();
+                    break;
+    }
     return 0;
 }
+void retirada(){
+    header();
 
+    int codProduto, motivoRetirada, unidRetirada;
+
+    printf ("Retirada de Produtos!\n\n");
+    printf ("Códigos            Motivo\n");
+    printf ("   1               Consumo\n");
+    printf ("   2               Vencimento\n");
+    printf ("   3               Avaria\n");
+    printf ("   4               Perda/Roubo\n\n");
+
+    printf ("Qual o código do produto que deseja retirar? ");
+    scanf (" %d", &codProduto);
+
+    printf ("Quantas unidades deseja retirar? ");
+    scanf (" %d", &unidRetirada);
+
+    printf ("Qual o código do motivo da retirada?");
+    scanf (" %d", &motivoRetirada);
+}
+void historicoRetirada(){
+}
 void tutorial(){
     header();
     printf("Bem Vindo (a) ao OptiStock\n\n");
@@ -130,6 +175,20 @@ void tutorial(){
 
 
     printf ("4 - Retirar o Produto\n\n");
+    printf("Este menu serve para lançar alterações do estoque.\n");
+    printf("Ao selecionar o Menu 4 - Retirar produtos, você deverá\n");
+    printf("inserir o código do produto que deseja realizar retirada.\n\n");
+
+    printf("O programa irá exibir a quantidade atual do produto,\n");
+    printf("e você deverá inserir quantas unidades deseja retirar e\n");
+    printf("o código do motivo que vai estar listado.\n\n");
+
+    printf("Caso esqueça o código do produto durante a retirada, \n");
+    printf("digite 0 para voltar para o menu principal\n");
+    printf("e acesse o Menu 1 - Produtos, para verificar.\n\n");
+
+    printf("Ao final da retirada, caso queira verificar se os dados\n");
+    printf("estão corretos, utilize o Menu 3 - Estoque!\n\n");
 
     system("pause");
     system("cls");
@@ -141,7 +200,7 @@ void tutorial(){
     printf ("5 - Tutorial\n\n");
 
     printf("Caso queira visualizar o tutorial novamente, basta acessar\n");
-    printf("6 - Tutorial\n\n");
+    printf("5 - Tutorial\n\n");
 
     system("pause");
     system("cls");
