@@ -1,0 +1,35 @@
+
+ Codigo: 200
+ Descricao: Cerveja A Garrafa
+ Qtd.Unidades: 100
+ Valor por unidade: 6,00
+
+ Codigo: 205
+ Descricao: Cerveja A Lata
+ Qtd.Unidades: 100
+ Valor por unidade: 4,00
+
+ Codigo: 210
+ Descricao: Água Garrafa
+ Qtd.Unidades: 20
+ Valor por unidade: 1,00
+
+ Codigo: 215
+ Descricao: Vodka
+ Qtd.Unidades: 10
+ Valor por unidade: 50,00
+
+ Codigo: 220
+ Descricao: Cerveja B Garrafa
+ Qtd.Unidades: 50
+ Valor por unidade: 8,00
+
+ Codigo: 225
+ Descricao: Cerveja B Lata
+ Qtd.Unidades: 35
+ Valor por unidade: 5,00
+
+ Codigo: 230
+ Descricao: Sei la
+ Qtd.Unidades: 42
+ Valor por unidade: 3,00
