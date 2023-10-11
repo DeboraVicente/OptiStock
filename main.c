@@ -4,6 +4,7 @@
 #include <string.h>
 #include <windows.h>
 
+//---------------------Protótipos das funções---------------------------//
 void produto(nome_pasta);
 void procurarProd(nome_pasta);
 void editProd(nome_pasta);
@@ -347,8 +348,122 @@ void editProd(){
 }
 
 void compra(){
+
     header();
-    return 0;
+        
+    int codProduto, unidades, verifica, opcao;
+    float valorUnidade;
+    char descricao[50], c;
+
+    FILE *arquivo; //Cria um ponteiro para receber um arquivo 
+    //Abre o arquivo e o "a" tem a função append coloca no final do arquivo
+    arquivo = fopen("estoque.txt", "a"); 
+    //Checa se o arquivo pode ser aberto ou existe
+    if((arquivo=fopen("estoque.txt", "a")) == NULL)
+    {
+        printf("O arquivo não pode ser aberto");
+        exit(1);
+    }
+
+    //Laço do - while menu de opções
+    do{
+        printf("\n 1 - Entrar com uma compra");
+        printf("\n 2 - Verificar uma compra");
+        printf("\n 3 - Voltar menu principal");
+        printf("\n Escolha uma opcao: ");
+        scanf("%d", &opcao);
+        system("cls");
+        //Toda vez que limpar a tela chamar a função header()
+        header();
+    //Repete o menu ate que seja digita 1,2 ou 3
+    }while(opcao != 1 && opcao != 2 && opcao != 3);
+
+    //Se opção 1 entra no menu compra
+    if(opcao == 1)
+    {
+        //menu compra 
+        do{
+            printf("Menu compra\n\n");
+            printf("Entre com o codigo do produto: ");
+            scanf("%d",&codProduto);
+
+            printf("Descricao do produto: ");
+            //setbuf(stdin, NULL);
+            scanf(" "); //usei este metodo para substituir o setbuf
+            //Scanf com REGEX para receber 49 caracteres e final colocar o \n para evitar erros
+            scanf("%49[^\n]", descricao);  
+            printf("Quantas unidades: ");
+            scanf("%d",&unidades);
+
+            printf("Qual o valor por unidade: ");
+            scanf("%f", &valorUnidade);
+
+            printf("\n Codigo: %d",codProduto);
+            printf("\n Descricao: %s",descricao);
+            printf("\n Qtd.Unidades: %d",unidades);
+            printf("\n Valor por unidade: %.2f",valorUnidade);
+
+            printf("\n\n Confirma essas informacoes");
+            printf("\n Digite 1 para Confirmar a compra");
+            printf("\n Digite 0 para apagar os dados da compra");
+            printf("\n Digite qualquer outra tecla para voltar ao menu principal: ");
+            scanf("%d", &verifica);
+            system("cls");
+                
+            if(verifica != 1 && verifica != 0)
+            {
+                main();
+            }
+        }
+        while(verifica != 1);
+
+        //Grava os dados no arquivo estoque
+        printf("\n Gravando dados...\n");
+        system("pause");
+
+        //Função fprintf grava o texto no arquivo chamado de estoque.txt
+        fprintf(arquivo,"\n");
+        fprintf(arquivo,"\n Codigo: %d", codProduto);
+        fprintf(arquivo,"\n Descricao: %s", descricao);
+        fprintf(arquivo,"\n Qtd.Unidades: %d", unidades);
+        fprintf(arquivo,"\n Valor por unidade: %.2f", valorUnidade);
+        fclose(arquivo);  //Fecha o arquivo estoque.txt
+        printf("\n Gravado com sucesso \n");
+        system("PAUSE");
+        printf("\n Digite 1 para entrar com mais uma compra");
+        printf("\n Digite outra tecla para voltar ao menu principal: ");
+        scanf("%d", &verifica);
+        if(verifica != 1)
+        {
+            main(); //Vai para a função principal
+        }
+        compra(); //Vai para o início desta função
+    }
+
+    if(opcao == 2)
+    {
+        //Abre o arquivo estoque.txt no modo leitura 
+        arquivo = fopen("estoque.txt", "r");
+        do
+        {
+            //faz a leitura do caracter no arquivo apontado
+            c = fgetc(arquivo);
+
+            //exibe o caracter lido na tela
+            printf("%c" , c);
+
+        //enquanto a leitura seja diferente que o final do arquivo
+        }while (c != EOF); // Le o arquivo ate o final
+        fclose(arquivo); //Fecha o arquivo
+        printf("\n");
+        system("pause");
+        compra(); //Vai para o início da função
+    }
+
+    if(opcao == 3)
+    {
+        main(); //Vai para o menu principal
+    }
 }
 
 void estoque(){
