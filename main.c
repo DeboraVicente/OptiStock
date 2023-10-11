@@ -4,12 +4,12 @@
 #include <string.h>
 #include <windows.h>
 
-void produto(nome_pasta);
-void procurarProd(nome_pasta);
-void editProd(nome_pasta);
-void estoque(nome_pasta);
-void compra(nome_pasta);
-void movimentacao(nome_pasta);
+void produto();
+void procurarProd();
+void editProd();
+void estoque();
+void compra();
+void movimentacao();
 void retirada();
 void historicoRetirada();
 void tutorial();
@@ -39,10 +39,10 @@ void main(){
                     produto();
                     break;
                 case 2:
-                    estoque();
+                    compra();
                     break;
                 case 3:
-                    compra();
+                    estoque();
                     break;
                 case 4:
                     movimentacao();
