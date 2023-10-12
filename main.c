@@ -89,7 +89,78 @@ void main()
         return 0;
     }
 }
+void retirada()
+{
+    system("cls");
+    header();
 
+    int codProduto, motivoRetirada, unidRetirada;
+    int opcao;
+
+    gotoxy(70, 6);
+    printf("Menu Retirar Produto");
+    gotoxy(51, 7);
+    printf("Escolha uma das opções abaixo para prosseguir:\n");
+
+    do
+    {
+        printf("1 - Retirar Produto\n");
+        printf("2 - Verificar Retirada\n");
+        printf("0 - Voltar ao Menu\n");
+        printf("Digite a opção: ");
+        scanf(" %d", &opcao);
+        system("cls");
+        header();
+        gotoxy(68, 6);
+        printf("Menu Retirar Produtos\n");
+        gotoxy(51, 7);
+        printf("Escolha uma das opções abaixo para prosseguir:\n");
+    }while(opcao != 1 && opcao != 2 && opcao != 0 );
+
+    if (opcao == 1)// vai para retirada
+    {
+        system("cls");
+        header();
+
+        gotoxy(51, 7);
+        printf("Retirada de Produtos\n\n");
+        printf("_________________________________\n");
+        printf("|  Códigos     |     Motivo     |\n");
+        printf("|     1        |    Consumo     |\n");
+        printf("|     2        |   Vencimento   |\n");
+        printf("|     3        |     Avaria     |\n");
+        printf("|     4        |   Perda/Roubo  |\n");
+        printf("_________________________________\n");
+
+
+        printf("Qual o código do produto que deseja retirar: ");
+        scanf(" %d", &codProduto);
+
+        // verificação se o produto existe
+
+        printf("Quantas unidades deseja retirar: ");
+        scanf(" %d", &unidRetirada);
+
+        //verificação se pode retirar aquela quantidade
+
+        printf("Qual o código do motivo da retirada: ");
+        scanf(" %d", &motivoRetirada);
+
+        //verificação se o motivo da retirada existe
+
+
+        return;
+    }
+    if(opcao == 2)//mostra as retiradas ja feitas
+    {
+        system("cls");
+        header();
+    }
+    if (opcao == 0)// volta para o menu principal
+    {
+        main();
+    }
+}
 void tutorial()
 {
     system("cls");
