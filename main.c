@@ -89,6 +89,182 @@ void main()
         return 0;
     }
 }
+void produto()
+{
+    system("cls");
+    header();
+
+    char descricaoProduto;
+    int codProduto, salva, qtdDesejada, minCritico;
+    int opcao;
+
+    gotoxy(68, 6);
+    printf("Menu Produto\n");
+    gotoxy(51, 7);
+    printf("Escolha uma das opções abaixo para prosseguir:\n\n");
+
+    do
+    {
+        printf("1 - Procurar produto\n");
+        printf("2 - Editar produto\n");
+        printf("3 - Criar produto\n");
+        printf("0 - Voltar menu principal\n\n");
+        printf("Digite a opção: ");
+        scanf(" %d", &opcao);
+        system("cls");
+        header();
+        gotoxy(68, 6);
+        printf("Menu Produto\n");
+        gotoxy(51, 7);
+        printf("Escolha uma das opções abaixo para prosseguir:\n");
+    }while(opcao != 1 && opcao != 2 && opcao != 3 && opcao != 0 );
+
+    if(opcao == 1)// procura o produto
+    {
+        system("cls");
+        header();
+
+        gotoxy(68, 6);
+        printf("Procurar produto\n");
+        printf("Entre com o código do produto: ");
+        scanf(" %d", &codProduto);
+
+        if (codProduto == 1)// quando encontra o produto
+        {
+            printf("\nCódigo do produto: %d \n",codProduto);
+            printf("Descrição: %c\n", descricaoProduto);
+            printf("Quantidade desejada: %d\n", qtdDesejada);
+            printf("Minimo critico: %d\n\n",minCritico);
+
+            do
+            {
+                gotoxy(51, 14);
+                printf("Escolha uma das opções abaixo para prosseguir:\n\n");
+                printf("1 - Voltar ao menu principal\n");
+                printf("2 - Voltar ao menu produto\n");
+                printf("3 - Editar este produto\n");
+                printf("0 - Fechar o programa\n\n");
+                printf("Digite a opção: ");
+                scanf(" %d", &opcao);
+                system("cls");
+                header();
+                gotoxy(68, 6);
+                printf("Procurar produto\n");
+            }while(opcao != 0 && opcao != 1 && opcao != 2 && opcao != 3 );
+
+            if(opcao==1)
+            {
+                main();
+            }
+             if(opcao==2)
+            {
+                produto();
+            }
+             if(opcao==0)
+            {
+                system("cls");
+                header();
+                gotoxy(66, 7);
+                printf(VERMELHO"Encerrando..."RESET);
+                return 0;
+            }
+        }
+        else//quando não encontra o produto
+        {
+            system("cls");
+            header();
+
+            do
+            {
+                gotoxy(65, 8);
+                printf(VERMELHO"Produto não encontrado!\n"RESET);
+                gotoxy(51, 10);
+                printf("Escolha uma das opções abaixo para prosseguir:\n\n");
+                printf("1 - Procurar um produto\n");
+                printf("2 - Menu produto\n");
+                printf("3 - Menu principal\n");
+                printf("0 - Encerrar o programa\n\n");
+                printf("Digite a opção: ");
+                scanf(" %d", &opcao);
+                system("cls");
+                header();
+            }while (opcao != 0 && opcao != 1 && opcao != 2 && opcao != 3 );
+
+            if(opcao==1)
+            {
+                produto();
+            }
+             if(opcao==2)
+            {
+                produto();
+            }
+             if(opcao==0)
+            {
+                system("cls");
+                header();
+                gotoxy(66, 7);
+                printf(VERMELHO"Encerrando..."RESET);
+                return 0;
+            }
+        }
+    }
+    if(opcao == 2)// edita o produto
+    {
+
+    }
+    if(opcao == 3)// cria o produto
+    {
+        system("cls");
+        header();
+
+        gotoxy(68, 6);
+        printf("Criar produto\n");
+        printf("Entre com o código do produto: ");
+        scanf(" %d", &codProduto);
+
+        //fazer verificação se esse código ja existe
+
+        printf("\nEntre com a descrição do produto: ");
+        scanf(" %c", &descricaoProduto);
+
+        printf("\nQuantidade desejada de estoque: ");
+        scanf(" %d", &qtdDesejada);
+
+        printf("\nMínimo crítico: ");
+        scanf("%d", &minCritico);
+
+        printf("Informações do produto criado\n");
+        printf("\nCódigo do produto: %d", codProduto);
+        printf("\nDescrição: %c", descricaoProduto);
+        printf("\nQuantidade desejada no estoque: %d", qtdDesejada);
+        printf("\nMínimo crítico: %d", minCritico);
+        printf("\n");
+
+        printf("\nEscolha uma das opções abaixo para prosseguir:\n");
+        printf("1 - Para salvar o produto\n");
+        printf("2 - Para alterar dados deste produto\n");
+        printf("0 - Voltar para o menu principal sem salvar\n");
+        scanf("Digite uma opção %d", &salva);
+
+        system("cls");
+        header();
+
+        if(salva==1)
+        {
+        }
+        if(salva==2)
+        {
+        }
+        if(salva==0)
+        {
+            main();
+        }
+    }
+    if(opcao == 0)// volta para o menu principal
+    {
+        main();
+    }
+}
 void retirada()
 {
     system("cls");
