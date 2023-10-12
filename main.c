@@ -90,6 +90,93 @@ void main()
     }
 }
 
+void tutorial()
+{
+    system("cls");
+    header();
+    gotoxy(56, 6);
+    printf("Bem Vindo (a) ao Tutorial do OptiStock\n\n");
+
+    gotoxy(62, 7);
+    printf("O programa possui 5 menus:\n\n");
+    printf("1 - Menu Produto\n");
+    printf("2 - Menu Compra\n");
+    printf("3 - Menu Estoque\n");
+    printf("4 - Menu Retirar Produto\n");
+    printf("5 - Tutorial\n");
+
+    system("pause");
+    system("cls");
+
+    header();
+    gotoxy(56, 6);
+    printf("Bem Vindo (a) ao Tutorial OptiStock\n\n");
+
+    gotoxy(65, 7);
+    printf("1 - Menu Produto\n\n");
+
+    system("pause");
+    system("cls");
+
+    header();
+    gotoxy(56, 6);
+    printf("Bem Vindo (a) ao Tutorial OptiStock\n\n");
+
+    gotoxy(66, 7);
+    printf("2 - Menu Compra\n\n");
+
+    system("pause");
+    system("cls");
+
+    header();
+    gotoxy(56, 6);
+    printf("Bem Vindo (a) ao Tutorial OptiStock\n\n");
+
+    gotoxy(65, 7);
+    printf("3 - Menu Estoque\n\n");
+
+    system("pause");
+    system("cls");
+
+    header();
+    gotoxy(56, 6);
+    printf("Bem Vindo (a) ao Tutorial OptiStock\n\n");
+
+    gotoxy(60, 7);
+    printf("4 - Menu Retirar o Produto\n\n");
+    printf("Este menu serve para lan ar altera  es do estoque.\n");
+    printf("Ao selecionar o Menu 4 - Retirar produtos, voc  dever \n");
+    printf("inserir o c digo do produto que deseja realizar retirada.\n\n");
+
+    printf("O programa ir  exibir a quantidade atual do produto,\n");
+    printf("e voc  dever  inserir quantas unidades deseja retirar e\n");
+    printf("o c digo do motivo que vai estar listado.\n\n");
+
+    printf("Caso esqueça o código do produto durante a retirada, \n");
+    printf("digite 0 para voltar para o menu principal\n");
+    printf("e acesse o Menu 1 - Produtos, para verificar.\n\n");
+
+    printf("Ao final da retirada, caso queira verificar se os dados\n");
+    printf("estão corretos, utilize o Menu 3 - Estoque!\n\n");
+
+    system("pause");
+    system("cls");
+
+    header();
+    gotoxy(56, 6);
+    printf("Bem Vindo (a) ao Tutorial OptiStock\n\n");
+
+    gotoxy(65, 7);
+    printf("5 - Menu Tutorial\n\n");
+
+    printf("Caso queira visualizar o tutorial novamente, basta acessar\n");
+    printf("5 - Tutorial\n\n");
+
+    system("pause");
+    system("cls");
+    main();
+    return;
+}
 void header()
 {
     //design(200, 170);
