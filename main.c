@@ -265,6 +265,139 @@ void produto()
         main();
     }
 }
+void compra()
+{
+    system("cls");
+    header(); //Chama a função que imprime o cabeçalho
+
+    int codProduto, unidades, verifica, opcao;
+    float valorUnidade;
+    char descricao[50], c;
+
+    FILE *arquivo; //Ponteiro para o arquivo estoque.txt
+    arquivo = fopen("estoque.txt", "a"); //Abre o arquivo estoque.txt para escrita
+    if((arquivo=fopen("estoque.txt", "a")) == NULL) //Verifica se o arquivo foi aberto
+    {
+        printf("O arquivo não pode ser aberto"); //Caso não tenha sido aberto, exibe a mensagem
+        exit(1); //Encerra o programa
+    }
+
+    gotoxy(68, 6);
+    printf("Menu Compra\n");
+    gotoxy(51, 7);
+    printf("Escolha uma das opções abaixo para prosseguir:\n\n");
+
+    //Menu de compra
+    do{
+        printf("1 - Entrar com uma compra\n");
+        printf("2 - Verificar uma compra\n");
+        printf("0 - Voltar menu principal\n");
+        printf("Digite a opção: ");
+        scanf(" %d", &opcao);
+        system("cls");
+        header();
+        gotoxy(68, 6);
+        printf("Menu Compra\n");
+        gotoxy(51, 7);
+        printf("Escolha uma das opções abaixo para prosseguir:\n\n");
+    }while(opcao != 1 && opcao != 2 && opcao != 0);
+
+
+    if(opcao == 1)//entra com a compra
+    {
+
+        do{
+            printf("Entrar com a compra\n\n");
+            printf("Digite o código do produto: ");
+            scanf(" %d",&codProduto);
+
+            //Criar rotina para verificar se o
+            //codigo do produto e valido
+
+            printf("Descrição do produto: ");
+            //setbuf(stdin, NULL);
+            scanf(" "); //Limpa o buffer do teclado substitui o setbuf
+            scanf("%49[^\n]", descricao); //Lê até 49 caracteres ou até o enter
+
+            printf("Quantas unidades: ");
+            scanf("%d",&unidades);
+
+            printf("Qual o valor por unidade: ");
+            scanf("%f", &valorUnidade);
+
+            printf("\n Código: %d",codProduto);
+            printf("\n Descrição: %s",descricao);
+            printf("\n Qtd.Unidades: %d",unidades);
+            printf("\n Valor por unidade: %.2f",valorUnidade);
+
+            printf("\n\n Confirma essas informações");
+            printf("\n Digite 1 para Confirmar a compra");
+            printf("\n Digite 0 para apagar os dados da compra");
+            printf("\n Digite qualquer outra tecla para voltar ao menu principal: ");
+            scanf("%d", &verifica);
+            system("cls");
+
+            if(verifica != 1 && verifica != 0)
+            {
+                main(); //Chama a função main
+            }
+        }while(verifica != 1);
+
+        //Grava os dados no arquivo estoque
+        printf("\n Gravando dados...\n");
+        system("pause");
+
+        //fprintf escreve no arquivo apontado
+        fprintf(arquivo,"\n");
+        fprintf(arquivo,"\n Codigo: %d", codProduto);
+        fprintf(arquivo,"\n Descricao: %s", descricao);
+        fprintf(arquivo,"\n Qtd.Unidades: %d", unidades);
+        fprintf(arquivo,"\n Valor por unidade: %.2f", valorUnidade);
+        fclose(arquivo); //Fecha o arquivo
+        printf("\n Gravado com sucesso \n"); //Exibe mensagem de sucesso
+        system("PAUSE");
+        printf("\n Digite 1 para entrar com mais uma compra");
+        printf("\n Digite outra tecla para voltar ao menu principal: ");
+        scanf("%d", &verifica);
+        if(verifica != 1)
+        {
+            main(); //Chama a função main
+        }
+        compra();
+    }
+    if(opcao == 2)// verifica compras
+    {
+        FILE *arquivo;
+        arquivo = fopen("estoque.txt", "r"); //Abre o arquivo no modo leitura
+        //Laço para ler o arquivo até o final
+        do
+        {
+            //faz a leitura do caracter no arquivo apontado
+            c = fgetc(arquivo);
+
+            //exibe o caracter lido na tela
+            printf("%c" , c);
+
+        }while (c != EOF); //EOF = End Of File (Fim do arquivo)
+        fclose(arquivo);  //Fecha o arquivo
+        printf("\n");
+        system("pause");
+        compra(); //Chama a função compra
+    }
+    if(opcao == 3)// volta para o menu principal
+    {
+        main();
+    }
+    return 0;
+}
+void estoque()
+{
+    header();
+    return 0;
+}
+void arquivo()
+{
+}
 void retirada()
 {
     system("cls");
