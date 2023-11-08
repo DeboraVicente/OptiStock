@@ -1,0 +1,35 @@
+void estoque() {
+    system("cls");
+    header();
+    printf("Estoque\n\n");
+
+    FILE *arquivo;
+    arquivo = fopen("estoque.txt", "r"); // abrir o arquivo em modo de leitura
+
+    if (arquivo == NULL) {
+        printf("O arquivo não pode ser aberto.\n");
+        system("pause");
+        main(); // retornar ao menu
+    } else {
+        int codProduto;
+        char descricao[50];
+        int qtdUnidades;
+        float valorUnidade;
+
+        printf("%-10s %-30s %-15s %-15s\n", "Código", "Descrição", "Quantidade", "Valor Unidade");
+        printf("-------------------------------------------------------------\n");
+
+        while (fscanf(arquivo, " Codigo: %d", &codProduto) != EOF) {
+            // ler e mostrar as informaçoes dos produtos
+            fscanf(arquivo, " Descricao: %s", descricao);
+            fscanf(arquivo, " Qtd.Unidades: %d", &qtdUnidades);
+            fscanf(arquivo, " Valor por unidade: %f", &valorUnidade);
+
+            printf("%-10d %-30s %-15d %-15.2f\n", codProduto, descricao, qtdUnidades, valorUnidade);
+        }
+
+        fclose(arquivo);
+        system("pause");
+        main();
+    }
+}
